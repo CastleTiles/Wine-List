@@ -14,9 +14,9 @@
       --card: #ffffff;
       --ink: #1f1f1d;
       --muted: #74746f;
-      --accent: #8a6d3b;
-      --line: #e5e3dd;
-      --shadow: 0 6px 20px rgba(0, 0, 0, .05);
+      --accent: #7c6741;
+      --line: #efede8;
+      --shadow: 0 6px 18px rgba(0, 0, 0, .04);
     }
 
     * { box-sizing: border-box; }
@@ -32,15 +32,14 @@
       position: sticky;
       top: 0;
       z-index: 5;
-      background: rgba(255, 255, 255, .92);
+      background: rgba(255, 255, 255, .94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
     }
 
     .wrap {
       max-width: 760px;
       margin: 0 auto;
-      padding: 22px 16px 36px;
+      padding: 22px 16px 28px;
     }
 
     .eyebrow {
@@ -55,14 +54,13 @@
     h1 {
       margin: 0 0 18px;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.4rem, 10vw, 4rem);
+      font-size: clamp(2rem, 8vw, 3.2rem);
       line-height: .95;
       letter-spacing: -.04em;
     }
 
     .controls {
       display: flex;
-      gap: 10px;
       align-items: center;
     }
 
@@ -78,16 +76,17 @@
     }
 
     #search:focus {
-      outline: 3px solid rgba(138, 109, 59, .18);
+      outline: 3px solid rgba(124, 103, 65, .16);
       border-color: var(--accent);
       background: #fff;
     }
 
     .count {
-      min-width: 2ch;
-      color: var(--muted);
-      font-size: .9rem;
-      font-weight: 600;
+      display: none;
+    }
+
+    main.wrap {
+      padding-top: 20px;
     }
 
     .list {
@@ -136,7 +135,11 @@
 
     @media (max-width: 420px) {
       .wrap {
-        padding: 18px 13px 32px;
+        padding: 20px 13px 26px;
+      }
+
+      main.wrap {
+        padding-top: 18px;
       }
 
       .wine {
@@ -150,6 +153,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap">
@@ -232,7 +236,7 @@
       }
 
       status.textContent = "";
-      count.textContent = `${matches.length}`;
+      count.textContent = "";
 
       for (const wine of matches) {
         const item = document.createElement("div");
